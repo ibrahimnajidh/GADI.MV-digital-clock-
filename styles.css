@@ -107,7 +107,7 @@ body {
 }
 
 /* Mobile View (Responsive Design) */
-@media (max-width: 100px) {
+@media (max-width: 600px) {
     /* Adjust container layout */
     /* Full width for both elements */
     .container {
