@@ -1,3 +1,102 @@
+const quotes = [
+    {
+        text: "ކުކުޅަށްވުރެ ބިސް ދޮށީ ނުވާށެ",
+        author: "ހަރުބަސް"
+    },
+    {
+        text: "ފުޅައް ބުޑުން ދަންޏާ ދޮންހަސަނަށް ހީވާނީ ކެޔޮގަނޑު ކަނޑާހެންނެ ",
+        author: "މުސްކުޅި ބަސް"
+    },
+    {
+        text: "އަމާބުނީތީ ފަރަށްދިއުން",
+        author: "ހަރުބަސް"
+    },
+    {
+        text: "ބަޅެއްގެ ނަގޫ ސަންފާ އޮނަކަށްލާފައި އޮތަސް ތެދެއް ނުވާނެއެ",
+        author: "މުސްކުޅި ބަސް"
+    },
+    {
+        text: "ކެޔޮކޭވަރު އެނގޭނީ ބިތުފަންގި ނެގީމައެ",
+        author: "ހަރުބަސް"
+    },
+    {
+        text: "ކާންދޭ އަތުގައި ދައިނުގަންނާށެ",
+        author: "ހަރުބަސް"
+    },
+    {
+        text: "މީދަލަކަށް ދުވަހެއް އައްޔާ ހިކަންޖަކަށް ވެސް ދުވަހެއް އަންނާނެއެ",
+        author: "ހަރުބަސް"
+    },
+    {
+        text: "މީހުން އެނގޭނީ އެއް އޮޑިން ދަތުރުކުރީމައެ",
+        author: "މުސްކުޅި ބަސް"
+    },
+    {
+        text: "ހިކިފަސްތާ ބަކަނާޅާށެ",
+        author: "ހަރުބަސް"
+    },
+    {
+        text: "ކިތަންމެ ވަރަކަށް ދޮންކުރިއަސް ދުނބުރިއެއް އަނބަކަށް ނުވާނެއެ",
+        author: "މުސްކުޅި ބަސް"
+    },
+    {
+        text: "ހަލާދަނޑީގެ ދެކޮޅު ބަލާށެ",
+        author: "ހަރުބަސް"
+    },
+    {
+        text: "މެކުނު ފުމުނަކަސް ގާހަކަޔަކަށް ނުފުމެވޭނެއެ",
+        author: "މުސްކުޅި ބަސް"
+    },
+    {
+        text: "ވިހަނުލާނެ ކަމަށް އަތުކުރީ ތެރޭގައި ހަރުފަ ނުގެންގުޅޭށެ",
+        author: "ހަރުބަސް"
+    },
+    {
+        text: "ހެޔޮކަމެއްގެ ބަދަލުގައި ތެޔޮހަމެއް",
+        author: "މިސާލުބަސް"
+    },
+    {
+        text: "ހާރުވާ ކެޔޮގަނޑުގައި ފަލައަރި ޖަހާނެއެ",
+        author: "މުސްކުޅި ބަސް"
+    }
+];
+
+// DOM elements
+const quoteText = document.getElementById('quote-text');
+const quoteAuthor = document.getElementById('quote-author');
+
+// Keep track of current quote
+let currentQuoteIndex = 0;
+
+// Function to update quote with fade effect
+function updateQuote() {
+    // Fade out
+    quoteText.style.opacity = 0;
+    quoteAuthor.style.opacity = 0;
+    
+    // Wait for fade out to complete
+    setTimeout(() => {
+        // Get next quote
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+        const quote = quotes[currentQuoteIndex];
+        
+        // Update content
+        quoteText.textContent = `"${quote.text}"`;
+        quoteAuthor.textContent = `- ${quote.author}`;
+        
+        // Fade in
+        quoteText.style.opacity = 1;
+        quoteAuthor.style.opacity = 1;
+    }, 500);
+}
+
+// Initial opacity
+quoteText.style.opacity = 1;
+quoteAuthor.style.opacity = 1;
+
+// Update quote every 08 seconds
+setInterval(updateQuote, 8000);
+
 function updateClock() {
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
